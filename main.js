@@ -1285,6 +1285,42 @@ var mainState = (function (_super) {
     };
     return mainState;
 })(Phaser.State);
+// FACTORY: Creació de monstres
+var Monster = (function (_super) {
+    __extends(Monster, _super);
+    function Monster() {
+        _super.apply(this, arguments);
+    }
+    return Monster;
+})(Phaser.Sprite);
+var MonsterFactory = (function () {
+    function MonsterFactory() {
+    }
+    return MonsterFactory;
+})();
+var Robot = (function (_super) {
+    __extends(Robot, _super);
+    function Robot() {
+        _super.apply(this, arguments);
+    }
+    return Robot;
+})(Monster);
+var Zombie1 = (function (_super) {
+    __extends(Zombie1, _super);
+    function Zombie1() {
+        _super.apply(this, arguments);
+    }
+    return Zombie1;
+})(Monster);
+var Zombie2 = (function (_super) {
+    __extends(Zombie2, _super);
+    function Zombie2() {
+        _super.apply(this, arguments);
+    }
+    return Zombie2;
+})(Monster);
+//DECORATOR: El personatge pot incrementar la vida màxima en +1 quan mata X zombies. Pot recollir <3 i sumar una vida en cas de que no estigui al màxim.
+//OBSERVER: Patró que indica el marcador i les vides, i quan no hi ha zombies indica el nivell superat i crea un de nou, afegint més zombies.
 var ShooterGame = (function (_super) {
     __extends(ShooterGame, _super);
     function ShooterGame() {

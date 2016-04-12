@@ -395,6 +395,43 @@ class mainState extends Phaser.State {
     }
 }
 
+
+// FACTORY: Creació de monstres
+
+abstract class Monster extends Phaser.Sprite{
+
+}
+
+class MonsterFactory{
+
+}
+
+class Robot extends Monster implements atacEspecial{
+
+}
+
+class Zombie1 extends Monster implements atacEspecial{
+
+}
+
+class Zombie2 extends Monster implements atacEspecial{
+
+}
+
+//STRATEGY: Els zombies fan coses diferents.
+
+interface atacEspecial {
+
+}
+
+//DECORATOR: El personatge pot incrementar la vida màxima en +1 quan mata X zombies. Pot recollir <3 i sumar una vida en cas de que no estigui al màxim.
+
+
+
+//OBSERVER: Patró que indica el marcador i les vides, i quan no hi ha zombies indica el nivell superat i crea un de nou, afegint més zombies.
+
+
+
 class ShooterGame extends Phaser.Game {
     constructor() {
         super(800, 480, Phaser.CANVAS, 'gameDiv');
