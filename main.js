@@ -1,8 +1,3 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
 /**
  * Phaser joystick plugin.
  * Usage: In your preloader function call the static method preloadAssets. It will handle the preload of the necessary
@@ -12,6 +7,11 @@ var __extends = (this && this.__extends) || function (d, b) {
  * Use the speed dictionary to retrieve the input speed (if you are going to use an analog joystick)
  */
 /// <reference path="../phaser/phaser.d.ts"/>
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Gamepads;
 (function (Gamepads) {
     (function (Sectors) {
@@ -35,9 +35,7 @@ var Gamepads;
     var Joystick = (function (_super) {
         __extends(Joystick, _super);
         function Joystick(game, sector, gamepadMode) {
-            if (gamepadMode === void 0) {
-                gamepadMode = true;
-            }
+            if (gamepadMode === void 0) { gamepadMode = true; }
             _super.call(this, game, new PIXI.DisplayObject());
             this.imageGroup = [];
             this.doUpdate = false;
@@ -297,7 +295,7 @@ var Gamepads;
             game.load.image('joystick_knob', assets_path + '/joystick_knob.png');
         };
         return Joystick;
-    }(Phaser.Plugin));
+    })(Phaser.Plugin);
     Gamepads.Joystick = Joystick;
 })(Gamepads || (Gamepads = {}));
 /// <reference path="../phaser/phaser.d.ts"/>
@@ -306,21 +304,11 @@ var Gamepads;
     var PieMask = (function (_super) {
         __extends(PieMask, _super);
         function PieMask(game, radius, x, y, rotation, sides) {
-            if (radius === void 0) {
-                radius = 50;
-            }
-            if (x === void 0) {
-                x = 0;
-            }
-            if (y === void 0) {
-                y = 0;
-            }
-            if (rotation === void 0) {
-                rotation = 0;
-            }
-            if (sides === void 0) {
-                sides = 6;
-            }
+            if (radius === void 0) { radius = 50; }
+            if (x === void 0) { x = 0; }
+            if (y === void 0) { y = 0; }
+            if (rotation === void 0) { rotation = 0; }
+            if (sides === void 0) { sides = 6; }
             _super.call(this, game, x / 2, y / 2);
             this.atRest = false;
             this.game = game;
@@ -337,12 +325,8 @@ var Gamepads;
             this.drawCircle(this.x, this.y, this.radius * 2);
         };
         PieMask.prototype.drawWithFill = function (pj, color, alpha) {
-            if (color === void 0) {
-                color = 0;
-            }
-            if (alpha === void 0) {
-                alpha = 1;
-            }
+            if (color === void 0) { color = 0; }
+            if (alpha === void 0) { alpha = 1; }
             this.clear();
             this.beginFill(color, alpha);
             this.draw(pj);
@@ -366,7 +350,7 @@ var Gamepads;
                 this.lineToRadians(pj * (Math.PI * 2) + this.rotation, radius);
         };
         return PieMask;
-    }(Phaser.Graphics));
+    })(Phaser.Graphics);
     Gamepads.PieMask = PieMask;
 })(Gamepads || (Gamepads = {}));
 /// <reference path="../phaser/phaser.d.ts"/>
@@ -384,9 +368,7 @@ var Gamepads;
     var Button = (function (_super) {
         __extends(Button, _super);
         function Button(game, x, y, key, onPressedCallback, listenerContext, type, width, height) {
-            if (type === void 0) {
-                type = ButtonType.SINGLE_THEN_TURBO;
-            }
+            if (type === void 0) { type = ButtonType.SINGLE_THEN_TURBO; }
             _super.call(this, game, new PIXI.DisplayObject());
             this.pressed = false;
             this.game = game;
@@ -490,7 +472,7 @@ var Gamepads;
             }
         };
         return Button;
-    }(Phaser.Plugin));
+    })(Phaser.Plugin);
     Gamepads.Button = Button;
 })(Gamepads || (Gamepads = {}));
 /// <reference path="Button.ts"/>
@@ -737,7 +719,7 @@ var Gamepads;
             game.load.image('button5', assets_path + '/button5.png');
         };
         return ButtonPad;
-    }(Phaser.Plugin));
+    })(Phaser.Plugin);
     Gamepads.ButtonPad = ButtonPad;
 })(Gamepads || (Gamepads = {}));
 /// <reference path="../phaser/phaser.d.ts"/>
@@ -752,9 +734,7 @@ var Gamepads;
     var TouchInput = (function (_super) {
         __extends(TouchInput, _super);
         function TouchInput(game, sector, type) {
-            if (type === void 0) {
-                type = TouchInputType.SWIPE;
-            }
+            if (type === void 0) { type = TouchInputType.SWIPE; }
             _super.call(this, game, new PIXI.DisplayObject());
             this.screenPressed = false;
             this.swipeThreshold = 100;
@@ -885,7 +865,7 @@ var Gamepads;
             game.load.image('joystick_knob', assets_path + '/joystick_knob.png');
         };
         return TouchInput;
-    }(Phaser.Plugin));
+    })(Phaser.Plugin);
     Gamepads.TouchInput = TouchInput;
 })(Gamepads || (Gamepads = {}));
 /// <reference path="../phaser/phaser.d.ts"/>
@@ -971,7 +951,7 @@ var Gamepads;
             Gamepads.ButtonPad.preloadAssets(game, assets_path);
         };
         return GamePad;
-    }(Phaser.Plugin));
+    })(Phaser.Plugin);
     Gamepads.GamePad = GamePad;
 })(Gamepads || (Gamepads = {}));
 /// <reference path="phaser/phaser.d.ts"/>
@@ -1040,22 +1020,17 @@ var mainState = (function (_super) {
     mainState.prototype.createTexts = function () {
         var width = this.scale.bounds.width;
         var height = this.scale.bounds.height;
-        this.scoreText = this.add.text(this.TEXT_MARGIN, this.TEXT_MARGIN, 'Score: ' + this.score, {
-            font: "30px Arial",
-            fill: "#ffffff"
-        });
+        this.scoreText = this.add.text(this.TEXT_MARGIN, this.TEXT_MARGIN, 'Score: ' + this.score, { font: "30px Arial", fill: "#ffffff" });
         this.scoreText.fixedToCamera = true;
-        this.livesText = this.add.text(width - this.TEXT_MARGIN, this.TEXT_MARGIN, 'Lives: ' + this.player.health, {
-            font: "30px Arial",
-            fill: "#ffffff"
-        });
+        this.livesText = this.add.text(width - this.TEXT_MARGIN, this.TEXT_MARGIN, 'Lives: ' + this.player.health, { font: "30px Arial", fill: "#ffffff" });
         this.livesText.anchor.setTo(1, 0);
         this.livesText.fixedToCamera = true;
-        this.stateText = this.add.text(width / 2, height / 2, '', {font: '84px Arial', fill: '#fff'});
+        this.stateText = this.add.text(width / 2, height / 2, '', { font: '84px Arial', fill: '#fff' });
         this.stateText.anchor.setTo(0.5, 0.5);
         this.stateText.visible = false;
         this.stateText.fixedToCamera = true;
     };
+    ;
     mainState.prototype.createExplosions = function () {
         var _this = this;
         this.explosions = this.add.group();
@@ -1066,6 +1041,7 @@ var mainState = (function (_super) {
             explosion.loadTexture(_this.rnd.pick(['explosion', 'explosion2', 'explosion3']));
         }, this);
     };
+    ;
     mainState.prototype.createWalls = function () {
         this.walls = this.tilemap.createLayer('walls');
         this.walls.x = this.world.centerX;
@@ -1073,15 +1049,18 @@ var mainState = (function (_super) {
         this.walls.resizeWorld();
         this.tilemap.setCollisionBetween(1, 195, true, 'walls');
     };
+    ;
     mainState.prototype.createBackground = function () {
         this.background = this.tilemap.createLayer('background');
         this.background.x = this.world.centerX;
         this.background.y = this.world.centerY;
     };
+    ;
     mainState.prototype.createTilemap = function () {
         this.tilemap = this.game.add.tilemap('tilemap');
         this.tilemap.addTilesetImage('tilesheet_complete', 'tiles');
     };
+    ;
     mainState.prototype.createMonsters = function () {
         var _this = this;
         this.monsters = this.add.group();
@@ -1100,6 +1079,7 @@ var mainState = (function (_super) {
         this.monsters.setAll('checkWorldBounds', true);
         this.monsters.callAll('events.onOutOfBounds.add', 'events.onOutOfBounds', this.resetMonster, this);
     };
+    ;
     mainState.prototype.setRandomAngle = function (monster) {
         monster.angle = this.rnd.angle();
     };
@@ -1118,12 +1098,15 @@ var mainState = (function (_super) {
         this.bullets.setAll('outOfBoundsKill', true);
         this.bullets.setAll('checkWorldBounds', true);
     };
+    ;
     mainState.prototype.createVirtualJoystick = function () {
         this.gamepad = new Gamepads.GamePad(this.game, Gamepads.GamepadType.DOUBLE_STICK);
     };
+    ;
     mainState.prototype.setupCamera = function () {
         this.camera.follow(this.player);
     };
+    ;
     mainState.prototype.createPlayer = function () {
         this.player = this.add.sprite(this.world.centerX, this.world.centerY, 'player');
         this.player.anchor.setTo(0.5, 0.5);
@@ -1134,6 +1117,7 @@ var mainState = (function (_super) {
         this.player.body.collideWorldBounds = true;
         this.player.body.drag.setTo(this.PLAYER_DRAG, this.PLAYER_DRAG); // x, y
     };
+    ;
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
         this.movePlayer();
@@ -1197,14 +1181,15 @@ var mainState = (function (_super) {
     };
     mainState.prototype.blink = function (sprite) {
         var tween = this.add.tween(sprite)
-            .to({alpha: 0.5}, 100, Phaser.Easing.Bounce.Out)
-            .to({alpha: 1.0}, 100, Phaser.Easing.Bounce.Out);
+            .to({ alpha: 0.5 }, 100, Phaser.Easing.Bounce.Out)
+            .to({ alpha: 1.0 }, 100, Phaser.Easing.Bounce.Out);
         tween.repeat(3);
         tween.start();
     };
     mainState.prototype.moveMonsters = function () {
         this.monsters.forEach(this.advanceStraightAhead, this);
     };
+    ;
     mainState.prototype.advanceStraightAhead = function (monster) {
         this.physics.arcade.velocityFromAngle(monster.angle, this.MONSTER_SPEED, monster.body.velocity);
     };
@@ -1213,9 +1198,11 @@ var mainState = (function (_super) {
             this.fire();
         }
     };
+    ;
     mainState.prototype.rotatePlayerToPointer = function () {
         this.player.rotation = this.physics.arcade.angleToPointer(this.player, this.input.activePointer);
     };
+    ;
     mainState.prototype.movePlayer = function () {
         var moveWithKeyboard = function () {
             if (this.cursors.left.isDown ||
@@ -1264,6 +1251,7 @@ var mainState = (function (_super) {
             moveWithVirtualJoystick.call(this);
         }
     };
+    ;
     mainState.prototype.fire = function () {
         if (this.time.now > this.nextFire) {
             var bullet = this.bullets.getFirstDead();
@@ -1287,8 +1275,8 @@ var mainState = (function (_super) {
             explosion.alpha = 0.6;
             explosion.angle = this.rnd.angle();
             explosion.scale.setTo(this.rnd.realInRange(0.5, 0.75));
-            this.add.tween(explosion.scale).to({x: 0, y: 0}, 500).start();
-            var tween = this.add.tween(explosion).to({alpha: 0}, 500);
+            this.add.tween(explosion.scale).to({ x: 0, y: 0 }, 500).start();
+            var tween = this.add.tween(explosion).to({ alpha: 0 }, 500);
             tween.onComplete.add(function () {
                 explosion.kill();
             });
@@ -1296,7 +1284,7 @@ var mainState = (function (_super) {
         }
     };
     return mainState;
-}(Phaser.State));
+})(Phaser.State);
 var ShooterGame = (function (_super) {
     __extends(ShooterGame, _super);
     function ShooterGame() {
@@ -1305,7 +1293,7 @@ var ShooterGame = (function (_super) {
         this.state.start('main');
     }
     return ShooterGame;
-}(Phaser.Game));
+})(Phaser.Game);
 window.onload = function () {
     var game = new ShooterGame();
 };

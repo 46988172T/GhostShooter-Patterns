@@ -10,4 +10,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://fonts.googleapis.com/css?family=Geo" location="$APPLICATION_HOME_DIR$/lib/webstorm.jar" />
+  </component>
 </project>
